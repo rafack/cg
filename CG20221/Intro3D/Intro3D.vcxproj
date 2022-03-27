@@ -143,11 +143,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\CG-2022-1 (Repo professora)\Hello3D\glad.c" />
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Origem.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shader.h" />

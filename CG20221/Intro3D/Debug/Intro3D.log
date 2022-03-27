@@ -1,6 +1,4 @@
 ﻿  SceneManager.cpp
 C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Shader.h(50,40): warning C4101: 'e': variável local não referenciada
-C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\SceneManager.cpp(17,25): warning C4305: 'inicializando': truncamento de 'double' para 'float'
-C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\SceneManager.cpp(173,16): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\SceneManager.cpp(174,16): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Camera.h(18,20): warning C4305: 'inicializando': truncamento de 'double' para 'float'
   Intro3D.vcxproj -> C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Debug\Intro3D.exe

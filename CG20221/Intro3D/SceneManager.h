@@ -16,6 +16,8 @@ public:
 	~SceneManager();
 
 	void initialize();
+	void setupCube();
+	void run();
 
 private:
 	static void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
