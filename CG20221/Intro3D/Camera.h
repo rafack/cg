@@ -29,7 +29,7 @@ public:
 		view = glm::lookAt(position, glm::vec3(0.0f, 0.0f, 0.0f), upDirectionVector);
 	
 		projection = glm::mat4(1);
-		projection = glm::perspective(45.0f, 1000.0f / 1000.0f, 0.1f, 100.0f);
+		projection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, -3.0f, 3.0f);
 	}
 
 
