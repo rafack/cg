@@ -17,6 +17,7 @@ public:
 
 	void initialize();
 	void setupCube();
+	void setupMesh(string meshFileName);
 	void run();
 
 private:
@@ -24,11 +25,13 @@ private:
 	static void cursorPos_callback(GLFWwindow* window, double xPos, double yPos);
 	static void setRotation(int key, int action);
 	static void setView(int key, int action);
+	static void moveCamera(int key, int action);
+
 	
 	GLFWwindow* window;
 	Shader* shader;
 
-	const GLuint WIDTH = 1000, HEIGHT = 1000;
+	const GLuint WIDTH = 800, HEIGHT = 600;
 
 	void loadGraphics();
 	void setupWindow();

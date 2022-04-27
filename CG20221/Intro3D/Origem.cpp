@@ -7,7 +7,7 @@ int main()
 	SceneManager* sceneManager = new SceneManager;
 
 	sceneManager->initialize();
-	sceneManager->setupCube();
+	sceneManager->setupMesh("Pikachu.obj");
 	sceneManager->run();
 	
 	return 0;

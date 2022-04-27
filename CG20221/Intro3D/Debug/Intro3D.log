@@ -1,4 +1,49 @@
-﻿  SceneManager.cpp
-C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Shader.h(50,40): warning C4101: 'e': variável local não referenciada
-C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Camera.h(18,20): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+﻿  Mesh.cpp
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(115,19): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(116,20): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(117,20): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(120,19): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(121,20): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(122,20): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(125,19): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(126,20): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(127,20): warning C4244: '=': conversão de 'double' para 'T', possível perda de dados
+          with
+          [
+              T=float
+          ]
+C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Intro3D\Mesh.cpp(161,21): warning C4018: '<': incompatibilidade de signed/unsigned
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflita com uso de outras bibliotecas; use /NODEFAULTLIB:library
   Intro3D.vcxproj -> C:\Users\rafac\OneDrive\2022-1\Computação Gráfica\cg (Meu Repo)\CG20221\Debug\Intro3D.exe
