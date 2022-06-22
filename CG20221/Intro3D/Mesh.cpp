@@ -1,11 +1,10 @@
 #include "Object.h"
-#include <string>
-#include <iostream>
 #include <fstream>
-#include <sstream>
-#include <vector>
-
 #include <glm/glm.hpp>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -69,6 +68,7 @@ private:
 	{
 		ifstream inputFileStream;
 		inputFileStream.open(filePath);
+		printf_s(filePath.c_str());
 
 		const int MAX_CHARACTERES_LINE = 50;
 

@@ -1,0 +1,2 @@
+objPikachu.obj
+objcottage.obj

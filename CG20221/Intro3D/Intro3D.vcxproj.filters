@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Origem.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\CG-2022-1 (Repo professora)\Hello3D\glad.c">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -37,6 +34,9 @@
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Origem.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,6 +59,15 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\vertex_shader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\..\..\CG-2022-1 (Repo professora)\Hello3D-Phong\shaders\phong.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\..\..\CG-2022-1 (Repo professora)\Hello3D-Phong\shaders\phong.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="geometry_shader.gs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

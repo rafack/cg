@@ -6,6 +6,9 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "Shader.h"
 #include "Object.h"
+#include <iostream>
+#include <cstring>
+#include<vector>
 
 using namespace std;
 
@@ -16,17 +19,15 @@ public:
 	~SceneManager();
 
 	void initialize();
-	void setupCube();
 	void setupMesh(string meshFileName);
 	void run();
+	void drawCall();
+	GLuint setupGrid(int rows, int cols);
 
 private:
+	static void processInput(GLFWwindow* window);
 	static void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 	static void cursorPos_callback(GLFWwindow* window, double xPos, double yPos);
-	static void setRotation(int key, int action);
-	static void setView(int key, int action);
-	static void moveCamera(int key, int action);
-
 	
 	GLFWwindow* window;
 	Shader* shader;

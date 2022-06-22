@@ -32,7 +32,6 @@ public:
 		projection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, -3.0f, 3.0f);
 	}
 
-
 	void updateViewMatrix()
 	{
 		view = glm::mat4(1);
@@ -59,6 +58,26 @@ public:
 				position -= glm::normalize(glm::cross(front, upDirectionVector)) * speed;
 				break;
 		}
+	}
+
+	void moveForward() {
+		position += speed * front;
+	}
+
+	void moveBackwards() {
+		position -= speed * front;
+	}
+
+	void moveToRight() {
+		position -= glm::normalize(glm::cross(front, upDirectionVector)) * speed;
+	}
+
+	void moveToLeft() {
+		position += glm::normalize(glm::cross(front, upDirectionVector)) * speed;
+	}
+
+	void updateFront(glm::vec3 vec) {
+		front = vec;
 	}
 
 	void updateViewDirection(int direction)

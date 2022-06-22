@@ -29,23 +29,31 @@ public:
         std::string fragmentCode;
         std::ifstream fShaderFile;
 
+        std::string geometryCode;
+        std::ifstream gShaderFile;
+
         vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+        gShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
         try
         {
-            vShaderFile.open("./Shaders/vertex_shader.vs");
-            fShaderFile.open("./Shaders/fragment_shader.fs");
-            std::stringstream vShaderStream, fShaderStream;
+            vShaderFile.open("./Shaders/phong.vs");
+            fShaderFile.open("./Shaders/phong.fs");
+            gShaderFile.open("./Shaders/geometry_shader.gs");
+            std::stringstream vShaderStream, fShaderStream, gShaderStream;
 
             vShaderStream << vShaderFile.rdbuf();
             fShaderStream << fShaderFile.rdbuf();
+            gShaderStream << gShaderFile.rdbuf();
 
             vShaderFile.close();
             fShaderFile.close();
+            gShaderFile.close();
 
             vertexCode = vShaderStream.str();
             fragmentCode = fShaderStream.str();
+            geometryCode = gShaderStream.str();
         }
         catch (std::ifstream::failure& e)
         {
@@ -54,8 +62,9 @@ public:
 
         const char* vShaderCode = vertexCode.c_str();
         const char* fShaderCode = fragmentCode.c_str();
+        const char* gShaderCode = geometryCode.c_str();
 
-        unsigned int vertex, fragment;
+        unsigned int vertex, fragment, geometry;
 
         vertex = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertex, 1, &vShaderCode, NULL);
@@ -67,19 +76,31 @@ public:
         glCompileShader(fragment);
         checkCompileErrors(fragment, "FRAGMENT");
 
+        geometry = glCreateShader(GL_GEOMETRY_SHADER);
+        glShaderSource(geometry, 1, &gShaderCode, NULL);
+        glCompileShader(geometry);
+        checkCompileErrors(geometry, "GEOMETRY");
+
         ID = glCreateProgram();
         glAttachShader(ID, vertex);
         glAttachShader(ID, fragment);
+        glAttachShader(ID, geometry);
         glLinkProgram(ID);
         checkCompileErrors(ID, "PROGRAM");
 
         glDeleteShader(vertex);
         glDeleteShader(fragment);
+        glDeleteShader(geometry);
     }
 
     void use()
     {
         glUseProgram(ID);
+    }
+
+    void setFloat(const std::string& name, float value) const
+    {
+        glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
     }
 
     void setBool(const std::string& name, bool value) const
@@ -92,9 +113,9 @@ public:
         glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
     }
 
-    void setMat4(const std::string& name, float* m4) const
+    void setMat4(const std::string& name, glm::mat4 m4) const
     {
-        glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, FALSE, m4);
+        glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, FALSE, glm::value_ptr(m4));
     }
 
     void setVec4(const std::string& name, float v1, float v2, float v3) const
@@ -105,6 +126,11 @@ public:
     void setVec2(const std::string& name, float v1, float v2) const
     {
         glUniform2f(glGetUniformLocation(ID, name.c_str()), v1, v2);
+    }
+
+    void setVec3(const std::string& name, float v1, float v2, float v3) const
+    {
+        glUniform3f(glGetUniformLocation(ID, name.c_str()), v1, v2, v3);
     }
 
 private:
