@@ -2,19 +2,19 @@
 
 out vec4 color;
 
-//Informações provenientes do vertex shader
-in vec3 scaledNormal; //vetor normal com correção de escala
-in vec3 fragPos; //posição em coord de mundo do objeto
+//Informaï¿½ï¿½es provenientes do vertex shader
+in vec3 scaledNormal; //vetor normal com correï¿½ï¿½o de escala
+in vec3 fragPos; //posiï¿½ï¿½o em coord de mundo do objeto
 
-//Informações provenientes do código em C++
-uniform vec3 lightPos;      //posiçao da fonte de luz 
+//Informaï¿½ï¿½es provenientes do cï¿½digo em C++
+uniform vec3 lightPos;      //posiï¿½ao da fonte de luz 
 uniform vec3 viewPos;       //posicao da camera
 uniform vec3 lightColor;    //cor da fonte de luz
 uniform vec3 objectColor;   //cor do objeto 
-uniform float ka;           //coeficiente de reflexão ambiente
-uniform float kd;           //coeficiente de reflexão difuse
-uniform float ks;           //coeficiente de reflexão especular
-uniform float n;            //expoente da reflexão especular
+uniform float ka;           //coeficiente de reflexï¿½o ambiente
+uniform float kd;           //coeficiente de reflexï¿½o difuse
+uniform float ks;           //coeficiente de reflexï¿½o especular
+uniform float n;            //expoente da reflexï¿½o especular
 
 void main()
 {
@@ -37,7 +37,7 @@ void main()
         
     vec3 result = (ambient + diffuse) * objectColor + specular;
 	
-    color = vec4(result, 1.0f);
+    color = vec4(objectColor, 1.0f);
     //color = vec4(objectColor,1);
 }
     

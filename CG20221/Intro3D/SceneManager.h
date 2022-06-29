@@ -18,11 +18,13 @@ public:
 	SceneManager();
 	~SceneManager();
 
-	void initialize();
-	void setupMesh(string meshFileName);
+	GLFWwindow* initialize();
+	int setupMesh(string meshFileName);
 	void run();
 	void drawCall();
 	GLuint setupGrid(int rows, int cols);
+	int getMeshSize();
+	vector<string> getObjConfig();
 
 private:
 	static void processInput(GLFWwindow* window);

@@ -13,7 +13,7 @@ public:
 	glm::mat4 view, projection;
 	glm::vec3 position, upDirectionVector, front;
 
-	float speed = 0.085f;
+	float speed = 0.05f;
 	float yaw = -90.0f, pitch = 0.0f;
 
 	enum movement { MOVE_FWD = GLFW_KEY_W, MOVE_BKW = GLFW_KEY_S, MOVE_LEFT = GLFW_KEY_A, MOVE_RIGHT = GLFW_KEY_D };
@@ -21,15 +21,11 @@ public:
 
 	void initialize()
 	{
-		position = glm::vec3(0.0f, 0.0f, 1.0f);
-		front = glm::vec3(0.0f, 0.0f, -1.0f);
-		upDirectionVector = glm::vec3(0.0f, 1.0f, 0.0f);
-		
-		view = glm::mat4(1);
-		view = glm::lookAt(position, glm::vec3(0.0f, 0.0f, 0.0f), upDirectionVector);
-	
-		projection = glm::mat4(1);
-		projection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, -3.0f, 3.0f);
+		vector<float> camConf = getConfig();
+
+		position = glm::vec3(camConf[0], camConf[1], camConf[2]);
+		front = glm::vec3(camConf[3], camConf[4], camConf[5]);
+		upDirectionVector = glm::vec3(camConf[6], camConf[7], camConf[8]);
 	}
 
 	void updateViewMatrix()
@@ -59,6 +55,75 @@ public:
 				break;
 		}
 	}
+
+	vector<float> getConfig()
+	{
+		vector<float> camConfig;
+
+		ifstream inputFileStream;
+		inputFileStream.open("./Models/scene_config.txt");
+
+		const int MAX_CHARACTERES_LINE = 50;
+
+		if (inputFileStream.is_open())
+		{
+			char line[MAX_CHARACTERES_LINE];
+			string strLine;
+			int nLine = 0;
+
+			while (nLine < 3)
+			{
+				inputFileStream.getline(line, MAX_CHARACTERES_LINE);
+				strLine = line;
+				string word;
+				istringstream sline(line);
+				sline >> word;
+
+				string camParam = word.substr(0, 6);
+
+				if (camParam == "camPos")
+				{
+					float camPosX, camPosY, camPosZ;
+					sline >> camPosX;
+					sline >> camPosY;
+					sline >> camPosZ;
+
+					camConfig.push_back(camPosX);
+					camConfig.push_back(camPosY);
+					camConfig.push_back(camPosZ);
+				}
+
+				if (camParam == "camFrn")
+				{
+					float camFrnX, camFrnY, camFrnZ;
+					sline >> camFrnX;
+					sline >> camFrnY;
+					sline >> camFrnZ;
+
+					camConfig.push_back(camFrnX);
+					camConfig.push_back(camFrnY);
+					camConfig.push_back(camFrnZ);
+				}
+
+				if (camParam == "camUpv")
+				{
+					float camUpvX, camUpvY, camUpvZ;
+					sline >> camUpvX;
+					sline >> camUpvY;
+					sline >> camUpvZ;
+
+					camConfig.push_back(camUpvX);
+					camConfig.push_back(camUpvY);
+					camConfig.push_back(camUpvZ);
+				}
+				nLine++;
+			}
+			inputFileStream.close();
+		}
+		else cout << "Erro ao ler o arquivo config" << endl;
+
+		return camConfig;
+	};
 
 	void moveForward() {
 		position += speed * front;

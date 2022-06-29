@@ -4,3 +4,5 @@ Repositório para os exercícios e trabalhos da disciplina de Computação Gráf
 [Trabalho do GA](TGA.md)
 
 [Exercício do GB](./Exerc%C3%ADcioGB/Exercicio_GB.md)
+
+[Trabalho do GB](TGB.md)
